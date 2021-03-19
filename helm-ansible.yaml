@@ -1,0 +1,13 @@
+- name: copy helm installation script to aws
+  hosts: all
+  tasks:
+    - name: copy file
+      copy:
+        src: get_helm.sh
+        dest: /root 
+
+    - name: execute shell command
+      shell: sh /root/get_helm.sh
+
+    - name: add helm command to enironment variable
+      shell: sh /root/helm_env.sh     
